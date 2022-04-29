@@ -150,8 +150,7 @@ func (f *Flag[T]) SetWithString(v string, changeLevel ChangeLevel) error {
 	return f.Set(val, changeLevel)
 }
 
-// changeLevels [dest-level [stop-level]]
-//  你无法修改当前级别比dest-level高的数据
+//  无法修改当前级别比 changeLevel 高的数据
 func (f *Flag[T]) Set(v T, changeLevel ChangeLevel) error {
 	if changeLevel < f.ChangeLevel {
 		return nil
